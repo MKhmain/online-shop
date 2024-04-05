@@ -3,28 +3,21 @@ package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.impl
 import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Cart;
 import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Product;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class DefaultCart implements Cart {
 
-	private Product[] products;
-	private int productIndex;
-	private int DEFAULT_PRODUCT_SIZE=10;
+	private List<Product> products;
 
 	{
-		products=new Product[DEFAULT_PRODUCT_SIZE];
+		products=new ArrayList<>();
 	}
 	
 	@Override
 	public boolean isEmpty() {
-		if(products==null||products.length==0)
-			return true;
-		for(Product product: products){
-			if(product!=null){
-				return false;
-			}
-		}
-		return true;
+		return products.isEmpty();
 	}
 
 	@Override
@@ -32,33 +25,18 @@ public class DefaultCart implements Cart {
 		if(product==null){
 			return;
 		}
-		if(productIndex>=products.length){
-			products= Arrays.copyOf(products, products.length<<1);
-		}
-		products[productIndex++]=product;
+		products.add(product);
 	}
 
 	@Override
-	public Product[] getProducts() {
-		int notNullProductsAmount=0;
-		for(Product product:products){
-			if(product!=null)
-				notNullProductsAmount++;
-		}
-		Product[] notNullProduct=new Product[notNullProductsAmount];
-		int idx=0;
-		for(Product product: products){
-			if(product!=null){
-				notNullProduct[idx++]=product;
-			}
-		}
-		return notNullProduct;
+	public List<Product> getProducts() {
+		return new ArrayList<>(products);
 	}
 
 	@Override
 	public void clear() {
-		products=new Product[DEFAULT_PRODUCT_SIZE];
-		productIndex=0;
+		products=new ArrayList<>();
+
 	}
 
 }
