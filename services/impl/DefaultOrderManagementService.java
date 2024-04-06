@@ -44,7 +44,7 @@ public class DefaultOrderManagementService implements OrderManagementService {
 
 	@Override
 	public List<Order> getOrders() {
-		return new ArrayList<Order>();
+		return new ArrayList<>(orders);
 	}
 	
 	void clearServiceState() {

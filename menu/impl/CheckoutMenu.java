@@ -25,7 +25,7 @@ public class CheckoutMenu implements Menu {
 			printMenuHeader();
 			var sc = new Scanner(System.in);
 			String creditCard = sc.next();
-			if(createOrder(creditCard)){
+			if(!createOrder(creditCard)){
 				continue;
 			}
 			context.getSessionCart().clear();
@@ -35,7 +35,7 @@ public class CheckoutMenu implements Menu {
 	}
 	private boolean createOrder(String creditCard){
 		Order order=new DefaultOrder();
-		if(creditCard==null||order.isCreditCardNumberValid(creditCard)){
+		if(creditCard==null||!order.isCreditCardNumberValid(creditCard)){
 			return false;
 		}
 		order.setCreditCardNumber(creditCard);
