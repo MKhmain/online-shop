@@ -3,7 +3,6 @@ package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.impl
 import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Order;
 import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Product;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class DefaultOrder implements Order {

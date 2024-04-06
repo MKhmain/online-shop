@@ -7,7 +7,7 @@ import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.menu.Menu;
 import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services.ProductManagementService;
 import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services.impl.DefaultProductManagementService;
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProductCatalogMenu implements Menu {
@@ -59,7 +59,7 @@ public class ProductCatalogMenu implements Menu {
 		menu.start();
 	}
 	public void printProducts(){
-		Product[] products=productManagementService.getProducts();
+		List<Product> products=productManagementService.getProducts();
 		for(Product product: products ){
 			System.out.println(product);
 		}
