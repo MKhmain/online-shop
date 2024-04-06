@@ -4,7 +4,6 @@ import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Cart;
 import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Product;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DefaultCart implements Cart {
