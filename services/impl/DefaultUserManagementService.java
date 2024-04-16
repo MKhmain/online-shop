@@ -5,6 +5,7 @@ import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services.UserM
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DefaultUserManagementService implements UserManagementService {
 	
@@ -14,7 +15,6 @@ public class DefaultUserManagementService implements UserManagementService {
 	private static DefaultUserManagementService instance;
 	
 	private List<User> userDb;
-	private int userIndex;
 	{
 		userDb=new ArrayList<>();
 	}
@@ -53,12 +53,17 @@ public class DefaultUserManagementService implements UserManagementService {
 
 	@Override
 	public User getUserByEmail(String userEmail) {
-		for(User user: userDb){
-			if(user!=null && user.getEmail().equalsIgnoreCase(userEmail)){
-				return user;
-			}
-		}
-		return null;
+		return userDb.stream().
+				filter(Objects::nonNull).
+				filter(u->u.getEmail().equalsIgnoreCase(userEmail)).
+				findFirst().
+				orElse(null);
+//		for(User user: userDb){
+//			if(user!=null && user.getEmail().equalsIgnoreCase(userEmail)){
+//				return user;
+//			}
+//		}
+//		return null;
 	}
 	
 	void clearServiceState() {

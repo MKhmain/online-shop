@@ -1,9 +1,8 @@
 package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.impl;
 
 import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Product;
-
 public class DefaultProduct implements Product {
-	
+
 	private int id;
 	private String productName;
 	private String categoryName;
@@ -35,5 +34,19 @@ public class DefaultProduct implements Product {
 		return this.productName;
 	}
 
-	
+	@Override
+	public String getCategoryName() {
+		return this.categoryName;
+	}
+
+	@Override
+	public double getPrice() {
+		return this.price;
+	}
+
+	@Override
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 }

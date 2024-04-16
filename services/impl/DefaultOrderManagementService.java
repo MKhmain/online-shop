@@ -5,6 +5,8 @@ import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services.Order
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class DefaultOrderManagementService implements OrderManagementService {
 
@@ -33,13 +35,17 @@ public class DefaultOrderManagementService implements OrderManagementService {
 	@Override
 	public List<Order> getOrdersByUserId(int userId) {
 
-		List<Order> filteredOrders=new ArrayList<>();
-		for(Order order:orders){
-			if(order!=null&&order.getCustomerId()==userId){
-				filteredOrders.add(order);
-			}
-		}
-		return filteredOrders;
+		return orders.stream().
+				filter(Objects::nonNull).
+				filter(o->o.getCustomerId()==userId).
+				collect(Collectors.toList());
+//		List<Order> filteredOrders=new ArrayList<>();
+//		for(Order order:orders){
+//			if(order!=null&&order.getCustomerId()==userId){
+//				filteredOrders.add(order);
+//			}
+//		}
+//		return filteredOrders;
 	}
 
 	@Override

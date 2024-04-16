@@ -7,6 +7,7 @@ import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services.Produ
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class DefaultProductManagementService implements ProductManagementService {
 	
@@ -51,12 +52,15 @@ public class DefaultProductManagementService implements ProductManagementService
 
 	@Override
 	public Product getProductById(int productIdToAddToCart) {
-		for(Product product: products){
-			if(product!=null && product.getId()==productIdToAddToCart){
-				return product;
-			}
-		}
-		return null;
+		return products.stream().
+				filter(Objects::nonNull).
+				filter(p->p.getId()==productIdToAddToCart).findFirst().orElse(null);
+//		for(Product product: products){
+//			if(product!=null && product.getId()==productIdToAddToCart){
+//				return product;
+//			}
+//		}
+//		return null;
 	}
 
 }
