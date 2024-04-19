@@ -1,4 +1,4 @@
-package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties;
+package enteties;
 
 import java.util.List;
 

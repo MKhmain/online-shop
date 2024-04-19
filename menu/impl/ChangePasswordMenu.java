@@ -1,7 +1,8 @@
-package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.menu.impl;
+package menu.impl;
 
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.configs.ApplicationContext;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.menu.Menu;
+
+import configs.ApplicationContext;
+import menu.Menu;
 
 import java.util.Scanner;
 

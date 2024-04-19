@@ -1,6 +1,6 @@
-package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services;
+package services;
 
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Product;
+import enteties.Product;
 
 import java.util.List;
 

@@ -1,9 +1,13 @@
-package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services.impl;
+package services.impl;
 
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.User;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services.UserManagementService;
+
+import enteties.User;
+import enteties.impl.DefaultUser;
+import services.UserManagementService;
+
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -13,7 +17,7 @@ public class DefaultUserManagementService implements UserManagementService {
 	private static final String EMPTY_EMAIL_ERROR_MESSAGE = "You have to input email to register. Please, try one more time";
 	private static final String NO_ERROR_MESSAGE = "";
 	private static DefaultUserManagementService instance;
-	
+
 	private List<User> userDb;
 	{
 		userDb=new ArrayList<>();
@@ -53,6 +57,7 @@ public class DefaultUserManagementService implements UserManagementService {
 
 	@Override
 	public User getUserByEmail(String userEmail) {
+
 		return userDb.stream().
 				filter(Objects::nonNull).
 				filter(u->u.getEmail().equalsIgnoreCase(userEmail)).

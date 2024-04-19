@@ -1,8 +1,8 @@
-package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services.impl;
+package services.impl;
 
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Product;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.impl.DefaultProduct;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services.ProductManagementService;
+import enteties.Product;
+import enteties.impl.DefaultProduct;
+import services.ProductManagementService;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.menu;
+package menu;
 
 public interface Menu {
 

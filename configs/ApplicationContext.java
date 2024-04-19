@@ -1,9 +1,10 @@
-package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.configs;
+package configs;
 
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Cart;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.User;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.impl.DefaultCart;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.menu.Menu;
+
+import enteties.Cart;
+import enteties.User;
+import enteties.impl.DefaultCart;
+import menu.Menu;
 
 public class ApplicationContext {
 	

@@ -1,11 +1,12 @@
-package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.menu.impl;
+package menu.impl;
 
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.configs.ApplicationContext;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Cart;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Product;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.menu.Menu;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services.ProductManagementService;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.services.impl.DefaultProductManagementService;
+
+import configs.ApplicationContext;
+import enteties.Cart;
+import enteties.Product;
+import menu.Menu;
+import services.ProductManagementService;
+import services.impl.DefaultProductManagementService;
 
 import java.util.List;
 import java.util.Scanner;

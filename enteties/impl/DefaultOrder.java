@@ -1,7 +1,7 @@
-package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.impl;
+package enteties.impl;
 
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Order;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Product;
+import enteties.Order;
+import enteties.Product;
 
 import java.util.List;
 

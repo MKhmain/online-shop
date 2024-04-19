@@ -1,6 +1,6 @@
-package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.impl;
+package enteties.impl;
 
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.User;
+import enteties.User;
 
 public class DefaultUser implements User {
 
@@ -21,7 +21,14 @@ public class DefaultUser implements User {
 		this.lastName = lastName;
 		this.password = password;
 		this.email = email;
+	}
 
+	public DefaultUser(int id, String firstName, String lastName, String password, String email) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.password = password;
+		this.email = email;
 	}
 
 	@Override

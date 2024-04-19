@@ -1,7 +1,7 @@
-package com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.impl;
+package enteties.impl;
 
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Cart;
-import com.itbulls.learnit.javacore.oop.exam.templates.onlineshop.enteties.Product;
+import enteties.Cart;
+import enteties.Product;
 
 import java.util.ArrayList;
 import java.util.List;
