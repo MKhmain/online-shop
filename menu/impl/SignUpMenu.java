@@ -1,6 +1,5 @@
 package menu.impl;
 
-
 import configs.ApplicationContext;
 import enteties.User;
 import enteties.impl.DefaultUser;
@@ -36,7 +35,9 @@ public class SignUpMenu implements Menu {
 		String password=sc.next();
 		System.out.print("Email: ");
 		String email= sc.next();
+		userManagementService.getUsers();
 		User user=new DefaultUser(fName,lName,password,email);
+
 		String result=userManagementService.registerUser(user);
 		if(result.isEmpty()||result==null){
 			context.setLoggedInUser(user);

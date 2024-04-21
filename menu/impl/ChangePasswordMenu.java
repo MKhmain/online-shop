@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class ChangePasswordMenu implements Menu {
 	
 	private ApplicationContext context;
-	
 	{
 		context = ApplicationContext.getInstance();
 	}
@@ -20,6 +19,8 @@ public class ChangePasswordMenu implements Menu {
 		Scanner sc = new Scanner(System.in);
 		String userInput = sc.next();
 		context.getLoggedInUser().setPassword(userInput);
+		context.getLoggedInUser().getPassword();
+
 		System.out.println("Your password has been successfully changed");
 	}
 

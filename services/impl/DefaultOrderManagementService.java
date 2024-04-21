@@ -35,18 +35,11 @@ public class DefaultOrderManagementService implements OrderManagementService {
 
 	@Override
 	public List<Order> getOrdersByUserId(int userId) {
-
 		return orders.stream().
 				filter(Objects::nonNull).
 				filter(o->o.getCustomerId()==userId).
 				collect(Collectors.toList());
-//		List<Order> filteredOrders=new ArrayList<>();
-//		for(Order order:orders){
-//			if(order!=null&&order.getCustomerId()==userId){
-//				filteredOrders.add(order);
-//			}
-//		}
-//		return filteredOrders;
+
 	}
 
 	@Override

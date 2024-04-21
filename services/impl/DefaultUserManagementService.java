@@ -4,6 +4,7 @@ package services.impl;
 import enteties.User;
 import enteties.impl.DefaultUser;
 import services.UserManagementService;
+import storage.impl.DefaultUserStoringService;
 
 
 import java.util.ArrayList;
@@ -18,9 +19,9 @@ public class DefaultUserManagementService implements UserManagementService {
 	private static final String NO_ERROR_MESSAGE = "";
 	private static DefaultUserManagementService instance;
 
-	private List<User> userDb;
+	private static DefaultUserStoringService defaultUserStoringService;
 	{
-		userDb=new ArrayList<>();
+		defaultUserStoringService=DefaultUserStoringService.getInstance();
 	}
 	private DefaultUserManagementService() {
 	}
@@ -32,7 +33,7 @@ public class DefaultUserManagementService implements UserManagementService {
 		}
 		if(getUserByEmail(user.getEmail())==null){
 			if(!user.getEmail().isEmpty()) {
-				userDb.add(user);
+				defaultUserStoringService.saveUser(user);
 			}
 			else
 				return EMPTY_EMAIL_ERROR_MESSAGE;
@@ -52,26 +53,18 @@ public class DefaultUserManagementService implements UserManagementService {
 	
 	@Override
 	public List<User> getUsers() {
-		return new ArrayList<>(userDb);
+		List<User> users=defaultUserStoringService.loadUsers();
+		DefaultUser.setCounter(users.stream().mapToInt(s->s.getId()).max().getAsInt());
+		return users;
 	}
 
 	@Override
 	public User getUserByEmail(String userEmail) {
-
-		return userDb.stream().
-				filter(Objects::nonNull).
-				filter(u->u.getEmail().equalsIgnoreCase(userEmail)).
-				findFirst().
-				orElse(null);
-//		for(User user: userDb){
-//			if(user!=null && user.getEmail().equalsIgnoreCase(userEmail)){
-//				return user;
-//			}
-//		}
-//		return null;
-	}
-	
-	void clearServiceState() {
-		userDb=new ArrayList<>();
+		for(User user: defaultUserStoringService.loadUsers()){
+			if (user != null && user.getEmail().equalsIgnoreCase(userEmail)) {
+				return user;
+			}
+		}
+		return null;
 	}
 }

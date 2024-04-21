@@ -84,4 +84,7 @@ public class DefaultUser implements User {
 	void clearState() {
 		userCounter=0;
 	}
+	public static void setCounter(int updatedCount) {
+		userCounter = updatedCount;
+	}
 }
