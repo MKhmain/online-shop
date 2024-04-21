@@ -21,13 +21,17 @@ public class MyOrdersMenu implements Menu {
 
 	@Override
 	public void start() {
+		printMenuHeader();
 		if(context.getLoggedInUser()==null){
 			System.out.println("Please, log in or create new account to see list of your orders");
 			return;
+		}else{
+			printUserOrdersById();
 		}
-		printMenuHeader();
 
-		List<Order> orders=orderManagementService.getOrders();
+	}
+	private void printUserOrdersById(){
+		List<Order> orders=orderManagementService.getOrdersByUserId(context.getLoggedInUser().getId());
 		if(orders==null||orders.size()==0){
 			System.out.println("Unfortunately, you don’t have any orders yet. Navigate back to main menu to place a new order");
 		}

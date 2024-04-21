@@ -72,9 +72,14 @@ public class ProductCatalogMenu implements Menu {
 		return userInput;
 	}
 	public Product getProduct(String input){
-		int productId=Integer.parseInt(input);
-		Product product=productManagementService.getProductById(productId);
-		return product;
+		try {
+			int productId = Integer.parseInt(input);
+			Product product=productManagementService.getProductById(productId);
+			return product;
+		}catch (Exception e){
+			return null;
+		}
+
 	}
 	@Override
 	public void printMenuHeader() {

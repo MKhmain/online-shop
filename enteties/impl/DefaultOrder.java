@@ -6,7 +6,7 @@ import enteties.Product;
 import java.util.List;
 
 public class DefaultOrder implements Order {
-
+	private static final long serialVersionId=1L;
 	private static final int AMOUNT_OF_DIGITS_IN_CREDIT_CARD_NUMBER = 16;
 	
 	private String creditCardNumber;
@@ -15,9 +15,7 @@ public class DefaultOrder implements Order {
 
 	@Override
 	public boolean isCreditCardNumberValid(String creditCardNumber) {
-		System.out.println(creditCardNumber.toCharArray().length == AMOUNT_OF_DIGITS_IN_CREDIT_CARD_NUMBER);
-		System.out.println(!creditCardNumber.contains(" "));
-		System.out.println(Long.parseLong(creditCardNumber) > 0);
+
 		return creditCardNumber.toCharArray().length == AMOUNT_OF_DIGITS_IN_CREDIT_CARD_NUMBER &&
 				!creditCardNumber.contains(" ") && Long.parseLong(creditCardNumber) > 0;
 	}
@@ -53,9 +51,9 @@ public class DefaultOrder implements Order {
 	
 	@Override
 	public String toString() {
-		return "Order: customer id - " + this.customerId + "\t" +
-				"credit card number - " + this.creditCardNumber + "\t" +
-				"products - " + this.products;
+		return "Order: customer id - " + this.customerId + "\n" +
+				"\tcredit card number - " + this.creditCardNumber + "\n" +
+				"\tproducts - " + this.products;
 	}
 
 }

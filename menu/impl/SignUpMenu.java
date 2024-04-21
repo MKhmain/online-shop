@@ -35,7 +35,11 @@ public class SignUpMenu implements Menu {
 		String password=sc.next();
 		System.out.print("Email: ");
 		String email= sc.next();
-		userManagementService.getUsers();
+		try {
+			userManagementService.getUsers();
+		}catch (Exception e){
+
+		}
 		User user=new DefaultUser(fName,lName,password,email);
 
 		String result=userManagementService.registerUser(user);

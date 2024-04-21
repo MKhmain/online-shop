@@ -54,7 +54,8 @@ public class DefaultUserManagementService implements UserManagementService {
 	@Override
 	public List<User> getUsers() {
 		List<User> users=defaultUserStoringService.loadUsers();
-		DefaultUser.setCounter(users.stream().mapToInt(s->s.getId()).max().getAsInt());
+		if(users!=null)
+			DefaultUser.setCounter(users.stream().mapToInt(s->s.getId()).max().getAsInt());
 		return users;
 	}
 
